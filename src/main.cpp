@@ -4,12 +4,12 @@
   int JoyStick_X = 0; // x	
   int JoyStick_Y = 1; // y	
   int JoyStick_Z = 13; // key
-  int x_fix = -4; // x offset fix
-  int y_fix = -12; // y offset fix
+  int x_fix = 21; // x offset fix
+  int y_fix = 9; // y offset fix
   int JoyStick_X2 = 2; // x2
   int JoyStick_Y2 = 3; // y2
   int JoyStick_Z2 = 12; // key2
-  int x2_fix = 0; // x2 offset fix
+  int x2_fix = 4; // x2 offset fix
   int y2_fix = 0 ; // y2 offset fix
 
   int SmallStep = 4096;
@@ -49,50 +49,59 @@ void loop() {
   y2 = analogRead (JoyStick_Y2) - 511 - y2_fix;
   z2 = digitalRead (JoyStick_Z2);
   
-  
+
   if (z == 0) {
     Serial.println("Z-På");
     // Öppna klo
     sm2.step(20);
   }
   
-  if (x < -10) {Serial.print (x, DEC);Serial.println(" X-Ner");
+  if (x < -10) {
+    Serial.print (x, DEC);Serial.println(" X-Ner");
     // Arm-A bakåt
     bm1.step(-1);
   }
   
-  if (x > 10) {Serial.print (x, DEC);Serial.println(" X-Upp");
+  if (x > 10) {
+    Serial.print (x, DEC);Serial.println(" X-Upp");
     // Arm-A framåt
     bm1.step(1);
   }
   
-  if (y < -10) {Serial.print (y, DEC);Serial.println(" Y-Vänster");
+  if (y < -10) {
+    Serial.print (y, DEC);Serial.println(" Y-Vänster");
     // Vänster rotation
     sm3.step(-20);
   }
   
-  if (y > 10) {Serial.print (y, DEC);Serial.println(" Y-Höger");
+  if (y > 10) {
+    Serial.print (y, DEC);Serial.println(" Y-Höger");
     // Höger rotation
     sm3.step(20);
   }
   
-  if (z2 == 0) {Serial.println("Z-På");
+  if (z2 == 0) {
+    Serial.println("Z2-På");
     // Stäng klo
     sm2.step(-20);}
   
-  if (x2 < -10) {Serial.print (x, DEC);Serial.println(" X-Ner");
+  if (x2 < -10) {
+    Serial.print (x2, DEC);Serial.println(" X2-Ner");
     // Arm-B Ner
-  bm2.step(-1); }
+    bm2.step(-1); }
   
-  if (x2 > 10) {Serial.print (x, DEC);Serial.println(" X-Upp");
+  if (x2 > 10) {
+    Serial.print (x2, DEC);Serial.println(" X2-Upp");
     // Arm-B Upp
-  bm2.step(1); }
+    bm2.step(1); }
   
-  if (y2 < -10) {Serial.print (y, DEC);Serial.println(" Y-Vänster");
+  if (y2 < -10) {
+    Serial.print (y2, DEC);Serial.println(" Y2-Vänster");
     // Arm-C Ner
-  sm1.step(-20);}
+    sm1.step(-20);}
   
-  if (y2 > 10) {Serial.print (y, DEC);Serial.println(" Y-Höger");
+  if (y2 > 10) {
+    Serial.print (y2, DEC);Serial.println(" Y2-Höger");
     // Arm-C Upp
-  sm1.step(20); }
+    sm1.step(20); }
 }
