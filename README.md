@@ -1,5 +1,5 @@
 # robot_arm
-## A 3D-printed robot arm made to be able to pick up objects of different shapes and sizes
+## Robotic project using an Arduino Mega, coded with C++, produced with electrical components and 3d-printed parts. Coded and produced with @j-terp
 
 ### Note: Code is written using the Visual Studio Code "Platform IO" extension. To run the code on an Arduino only the source code itself (main.ccp located in the src folder) and the "Stepper.h" Arduino library are required. The other files are used by the PlatformIO extension. To run the code on an Arduino you can simply upload the source code using your preferred Arduino IDE.
 
